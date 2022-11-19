@@ -17,6 +17,8 @@
 		F1C1BB952927BEF700D11A1A /* CreateAnAccountStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C1BB942927BEF700D11A1A /* CreateAnAccountStoryboard.storyboard */; };
 		F1C1BB972927BF1300D11A1A /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C1BB962927BF1300D11A1A /* CreateAnAccountViewController.swift */; };
 		F1F7214529283D9100EF0249 /* VerificationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7214429283D9100EF0249 /* VerificationServices.swift */; };
+		F1F721472929899100EF0249 /* SecretCodeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F721462929899100EF0249 /* SecretCodeStoryboard.storyboard */; };
+		F1F72149292989A700EF0249 /* SecretCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F72148292989A700EF0249 /* SecretCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		F1C1BB942927BEF700D11A1A /* CreateAnAccountStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAnAccountStoryboard.storyboard; sourceTree = "<group>"; };
 		F1C1BB962927BF1300D11A1A /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
 		F1F7214429283D9100EF0249 /* VerificationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationServices.swift; sourceTree = "<group>"; };
+		F1F721462929899100EF0249 /* SecretCodeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecretCodeStoryboard.storyboard; sourceTree = "<group>"; };
+		F1F72148292989A700EF0249 /* SecretCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 				F1C1BB822926E9C000D11A1A /* LaunchScreen.storyboard */,
 				F1C1BB902926ED5A00D11A1A /* SignInStoryboard.storyboard */,
 				F1C1BB942927BEF700D11A1A /* CreateAnAccountStoryboard.storyboard */,
+				F1F721462929899100EF0249 /* SecretCodeStoryboard.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 			children = (
 				F1C1BB922927BEC600D11A1A /* SignInViewController.swift */,
 				F1C1BB962927BF1300D11A1A /* CreateAnAccountViewController.swift */,
+				F1F72148292989A700EF0249 /* SecretCodeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -177,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F721472929899100EF0249 /* SecretCodeStoryboard.storyboard in Resources */,
 				F1C1BB842926E9C000D11A1A /* LaunchScreen.storyboard in Resources */,
 				F1C1BB952927BEF700D11A1A /* CreateAnAccountStoryboard.storyboard in Resources */,
 				F1C1BB812926E9C000D11A1A /* Assets.xcassets in Resources */,
@@ -197,6 +204,7 @@
 				F1C1BB972927BF1300D11A1A /* CreateAnAccountViewController.swift in Sources */,
 				F1C1BB7A2926E9BA00D11A1A /* SceneDelegate.swift in Sources */,
 				F1C1BB932927BEC600D11A1A /* SignInViewController.swift in Sources */,
+				F1F72149292989A700EF0249 /* SecretCodeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

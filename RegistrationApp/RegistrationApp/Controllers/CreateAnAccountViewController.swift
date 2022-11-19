@@ -8,7 +8,7 @@ class CreateAnAccountViewController: UIViewController {
     // MARK: - IBOutlets
     
     /// email
-    @IBOutlet private weak var emailTF: UITextField!
+    @IBOutlet  weak var emailTF: UITextField!
     @IBOutlet private weak var errorEmailLbl: UILabel!
     /// name
     @IBOutlet private weak var nameTF: UITextField!
@@ -74,8 +74,14 @@ class CreateAnAccountViewController: UIViewController {
         }
         confPasswordLbl.isHidden = isConfPass
     }
-
+ 
+    // переход от CreateVC к SecretCodeVC
     @IBAction func continueAction() {
+        let storyboard = UIStoryboard(name: "SecretCodeStoryboard", bundle: nil)
+        if let secretCodeVC = storyboard.instantiateViewController(withIdentifier: "SecretCodeViewController") as? SecretCodeViewController {
+            navigationController?.pushViewController(secretCodeVC, animated: true)
+            secretCodeVC.email = emailTF.text
+        }
     }
     
     // MARK: - Navigation
