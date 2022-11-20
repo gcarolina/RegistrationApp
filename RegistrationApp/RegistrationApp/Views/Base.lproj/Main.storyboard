@@ -3,6 +3,67 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="ZTn-Lb-FIt">
+            <objects>
+                <viewController id="e01-ai-NSV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YmA-OZ-7nc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KJ1-xL-UtP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="person.circle" catalog="system" id="uQA-vB-gMh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QMC-M7-bfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="615" y="355"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="fgX-jK-tQy">
+            <objects>
+                <viewController id="2Sa-Mj-oXl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hoA-fT-b5D">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="35t-dX-DAp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Info" selectedImage="info.circle" catalog="system" id="92A-1Y-8iy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="496-7q-9A8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="615" y="-252"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Nsj-ld-ql5">
+            <objects>
+                <tabBarController id="kSJ-QZ-KEi" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fNZ-sD-eKc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2Sa-Mj-oXl" kind="relationship" relationship="viewControllers" id="vhu-IP-WyV"/>
+                        <segue destination="e01-ai-NSV" kind="relationship" relationship="viewControllers" id="qqJ-Dw-jND"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uSF-yh-DvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-290" y="52"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
+        <image name="person.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
