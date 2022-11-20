@@ -45,8 +45,13 @@ final class VerificationServices {
         return emailPred.evaluate(with: email)
     }
     
-    static func isPassCofirm(pass1: String,
+    static func isPassConfirm(pass1: String,
                              pass2: String) -> Bool {
         pass1 == pass2
+    }
+    
+    static func isCodeConfirm(code1: String,
+                             code2: String) -> Bool {
+        code1 == code2
     }
 }

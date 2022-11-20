@@ -19,6 +19,7 @@
 		F1F7214529283D9100EF0249 /* VerificationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7214429283D9100EF0249 /* VerificationServices.swift */; };
 		F1F721472929899100EF0249 /* SecretCodeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F721462929899100EF0249 /* SecretCodeStoryboard.storyboard */; };
 		F1F72149292989A700EF0249 /* SecretCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F72148292989A700EF0249 /* SecretCodeViewController.swift */; };
+		F1F7214B292A9AB700EF0249 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7214A292A9AB700EF0249 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		F1F7214429283D9100EF0249 /* VerificationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationServices.swift; sourceTree = "<group>"; };
 		F1F721462929899100EF0249 /* SecretCodeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecretCodeStoryboard.storyboard; sourceTree = "<group>"; };
 		F1F72148292989A700EF0249 /* SecretCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretCodeViewController.swift; sourceTree = "<group>"; };
+		F1F7214A292A9AB700EF0249 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				F1C1BB922927BEC600D11A1A /* SignInViewController.swift */,
 				F1C1BB962927BF1300D11A1A /* CreateAnAccountViewController.swift */,
 				F1F72148292989A700EF0249 /* SecretCodeViewController.swift */,
+				F1F7214A292A9AB700EF0249 /* WelcomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				F1C1BB7A2926E9BA00D11A1A /* SceneDelegate.swift in Sources */,
 				F1C1BB932927BEC600D11A1A /* SignInViewController.swift in Sources */,
 				F1F72149292989A700EF0249 /* SecretCodeViewController.swift in Sources */,
+				F1F7214B292A9AB700EF0249 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

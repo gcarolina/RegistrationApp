@@ -5,10 +5,11 @@
 import UIKit
 
 class CreateAnAccountViewController: UIViewController {
+    var nameOfPerson = ""
     // MARK: - IBOutlets
     
     /// email
-    @IBOutlet  weak var emailTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
     @IBOutlet private weak var errorEmailLbl: UILabel!
     /// name
     @IBOutlet private weak var nameTF: UITextField!
@@ -60,6 +61,7 @@ class CreateAnAccountViewController: UIViewController {
         setUpPasswordIndicators()
     }
     
+    // переход по конпке SignIn из WelcomeVC в SignInVC
     @IBAction func signInAction() {
         performSegue(withIdentifier: "unwindToSignInVC", sender: "")
     }
@@ -67,7 +69,7 @@ class CreateAnAccountViewController: UIViewController {
     @IBAction func confPassTFAction(_ sender: UITextField) {
         if let confPassText = sender.text, !confPassText.isEmpty,
            let passText = passwordTF.text, !passText.isEmpty {
-            isConfPass = VerificationServices.isPassCofirm(pass1: passText,
+            isConfPass = VerificationServices.isPassConfirm(pass1: passText,
                                                            pass2: confPassText)
         } else {
             isConfPass = false
@@ -75,18 +77,16 @@ class CreateAnAccountViewController: UIViewController {
         confPasswordLbl.isHidden = isConfPass
     }
  
+    // MARK: - Navigation
     // переход от CreateVC к SecretCodeVC
     @IBAction func continueAction() {
         let storyboard = UIStoryboard(name: "SecretCodeStoryboard", bundle: nil)
         if let secretCodeVC = storyboard.instantiateViewController(withIdentifier: "SecretCodeViewController") as? SecretCodeViewController {
             navigationController?.pushViewController(secretCodeVC, animated: true)
             secretCodeVC.email = emailTF.text
+            secretCodeVC.nameOfPearson = nameTF.text
         }
     }
-    
-    // MARK: - Navigation
-
-    
 
     // MARK: - Private functions
     private func setupUI() {

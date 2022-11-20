@@ -28,6 +28,10 @@ class SignInViewController: UIViewController {
     // переход по конпке signIn из createVC в SignInVC
     @IBAction func unwindToSign(_ unwindSegue: UIStoryboardSegue) {
     }
+    
+    // переход по конпке continue из WelcomeVC в SignInVC
+    @IBAction func unwindToFirst(_ unwindSegue: UIStoryboardSegue) {
+    }
     // MARK: - Functions
     func setupUI() {
         signInButton.layer.cornerRadius = signInButton.frame.size.height / 2
