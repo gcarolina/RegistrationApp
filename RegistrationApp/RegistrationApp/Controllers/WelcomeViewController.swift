@@ -15,7 +15,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         if name != nil {
-            welcomeLabel.text = "\(name ?? " "), welcome to our app!"
+            welcomeLabel.text = "\(name ?? " ") welcome to our app!"
         }
     }
 
