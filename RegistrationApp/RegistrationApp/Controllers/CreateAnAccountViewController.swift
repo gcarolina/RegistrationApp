@@ -4,12 +4,12 @@
 
 import UIKit
 
-class CreateAnAccountViewController: UIViewController {
+final class CreateAnAccountViewController: UIViewController {
     var nameOfPerson = ""
     // MARK: - IBOutlets
     
     /// email
-    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet private weak var emailTF: UITextField!
     @IBOutlet private weak var errorEmailLbl: UILabel!
     /// name
     @IBOutlet private weak var nameTF: UITextField!
@@ -17,7 +17,7 @@ class CreateAnAccountViewController: UIViewController {
     @IBOutlet private weak var passwordTF: UITextField!
     @IBOutlet private weak var errorPasswordLbl: UILabel!
     /// password indicators
-    @IBOutlet var strongPassIndicatorsViews: [UIView]!
+    @IBOutlet private var strongPassIndicatorsViews: [UIView]!
     /// confirm password
     @IBOutlet private weak var confPasswordTF: UITextField!
     @IBOutlet private weak var confPasswordLbl: UILabel!
