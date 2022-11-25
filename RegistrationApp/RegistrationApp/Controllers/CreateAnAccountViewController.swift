@@ -40,7 +40,7 @@ final class CreateAnAccountViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func emailTFAction(_ sender: UITextField) {
+    @IBAction private func emailTFAction(_ sender: UITextField) {
         if let email = sender.text,
                !email.isEmpty,
                VerificationServices.isValidEmail(email: email) {
@@ -51,7 +51,7 @@ final class CreateAnAccountViewController: UIViewController {
         errorEmailLbl.isHidden = isValidEmail
     }
 
-    @IBAction func passwTFAction(_ sender: UITextField) {
+    @IBAction private func passwTFAction(_ sender: UITextField) {
         if let passText = sender.text, !passText.isEmpty {
             passwordStrength = VerificationServices.isValidPassword(pass: passText)
         } else {
@@ -59,14 +59,19 @@ final class CreateAnAccountViewController: UIViewController {
         }
         errorPasswordLbl.isHidden = passwordStrength != .veryWeak
         setUpPasswordIndicators()
+        
+        
+        guard let passwordText = sender.text, !passwordText.isEmpty, let confPassText = confPasswordTF.text, VerificationServices.isPassConfirm(pass1: passwordText, pass2: confPassText) else {
+            return
+        }
     }
     
-    // переход по конпке SignIn из WelcomeVC в SignInVC
-    @IBAction func signInAction() {
+   // переход по конпке SignIn из WelcomeVC в SignInVC
+    @IBAction private func signInAction() {
         performSegue(withIdentifier: "unwindToSignInVC", sender: "")
     }
     
-    @IBAction func confPassTFAction(_ sender: UITextField) {
+    @IBAction private func confPassTFAction(_ sender: UITextField) {
         if let confPassText = sender.text, !confPassText.isEmpty,
            let passText = passwordTF.text, !passText.isEmpty {
             isConfPass = VerificationServices.isPassConfirm(pass1: passText,
@@ -79,12 +84,16 @@ final class CreateAnAccountViewController: UIViewController {
  
     // MARK: - Navigation
     // переход от CreateVC к SecretCodeVC
-    @IBAction func continueAction() {
-        let storyboard = UIStoryboard(name: "SecretCodeStoryboard", bundle: nil)
-        if let secretCodeVC = storyboard.instantiateViewController(withIdentifier: "SecretCodeViewController") as? SecretCodeViewController {
-            navigationController?.pushViewController(secretCodeVC, animated: true)
-            secretCodeVC.email = emailTF.text
-            secretCodeVC.nameOfPearson = nameTF.text
+    @IBAction private func continueAction() {
+        if let emailText = emailTF.text, !emailText.isEmpty,
+           let passwordText = passwordTF.text, !passwordText.isEmpty {
+            
+            let userModel = UserModel(name: nameTF.text, email: emailText, password: passwordText)
+            let storyboard = UIStoryboard(name: "SecretCodeStoryboard", bundle: nil)
+            if let secretCodeVC = storyboard.instantiateViewController(withIdentifier: "SecretCodeViewController") as? SecretCodeViewController {
+                navigationController?.pushViewController(secretCodeVC, animated: true)
+                secretCodeVC.userModel = userModel
+            }
         }
     }
 
@@ -134,9 +143,9 @@ final class CreateAnAccountViewController: UIViewController {
         return true
     }
 
-    @objc func keyboardWillShow(notification:NSNotification){
+    @objc func keyboardWillShow(notification: NSNotification){
 
-        var userInfo = notification.userInfo!
+        let userInfo = notification.userInfo!
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kSJ-QZ-KEi">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,30 +12,96 @@
         <!--Profile-->
         <scene sceneID="ZTn-Lb-FIt">
             <objects>
-                <viewController id="e01-ai-NSV" sceneMemberID="viewController">
+                <viewController id="e01-ai-NSV" customClass="ProfileViewController" customModule="RegistrationApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YmA-OZ-7nc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mt6-yA-hX5">
+                                <rect key="frame" x="270" y="99" width="98" height="41"/>
+                                <color key="backgroundColor" red="0.54017409333247757" green="0.57606622624802983" blue="0.83991187509864274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log out">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="22"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logOutAction" destination="e01-ai-NSV" eventType="touchUpInside" id="3LH-sz-95m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcD-zm-Ybw">
+                                <rect key="frame" x="110" y="390" width="173" height="41"/>
+                                <color key="backgroundColor" red="0.54017409329999999" green="0.57606622620000003" blue="0.83991187509999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete account">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="22"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteAccountAction" destination="e01-ai-NSV" eventType="touchUpInside" id="fkv-NB-BAW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="KJ1-xL-UtP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.64487200138112244" green="0.67940380409738388" blue="0.83586726239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.1997413143" green="0.064832735480000001" blue="0.37919809360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KJ1-xL-UtP" firstAttribute="trailing" secondItem="mt6-yA-hX5" secondAttribute="trailing" constant="25" id="5xk-MF-UuV"/>
+                            <constraint firstItem="KJ1-xL-UtP" firstAttribute="trailing" secondItem="LcD-zm-Ybw" secondAttribute="trailing" constant="110" id="NOh-rY-Cz3"/>
+                            <constraint firstItem="mt6-yA-hX5" firstAttribute="top" secondItem="KJ1-xL-UtP" secondAttribute="top" constant="40" id="hrv-Qu-ETp"/>
+                            <constraint firstItem="LcD-zm-Ybw" firstAttribute="top" secondItem="mt6-yA-hX5" secondAttribute="bottom" constant="250" id="kun-by-l0l"/>
+                            <constraint firstItem="LcD-zm-Ybw" firstAttribute="leading" secondItem="KJ1-xL-UtP" secondAttribute="leading" constant="110" id="tmq-ZM-6ec"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="person.circle" catalog="system" id="uQA-vB-gMh"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="uQA-vB-gMh">
+                        <imageReference key="image" image="person.circle" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color red="0.1997413143" green="0.064832735480000001" blue="0.37919809360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color red="0.1997413143" green="0.064832735480000001" blue="0.37919809360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                        <imageReference key="selectedImage" image="person.circle" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color red="0.20913347600000001" green="0.066709658860000007" blue="0.38003100769999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color red="0.1997413143" green="0.064832735480000001" blue="0.37919809360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="deleteAccount" destination="LcD-zm-Ybw" id="ztz-k9-1tb"/>
+                        <outlet property="logOut" destination="mt6-yA-hX5" id="o84-mJ-IXA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMC-M7-bfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="615" y="355"/>
+            <point key="canvasLocation" x="615" y="413"/>
         </scene>
         <!--Info-->
         <scene sceneID="fgX-jK-tQy">
             <objects>
-                <viewController id="2Sa-Mj-oXl" sceneMemberID="viewController">
+                <viewController id="2Sa-Mj-oXl" customClass="InfoViewController" customModule="RegistrationApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hoA-fT-b5D">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="35t-dX-DAp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.78311607995707211" blue="0.79367811220037221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" selectedImage="info.circle" catalog="system" id="92A-1Y-8iy"/>
+                    <tabBarItem key="tabBarItem" title="Info" id="92A-1Y-8iy">
+                        <imageReference key="image" image="paperplane.circle.fill" catalog="system" symbolScale="medium" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color red="0.1997413143" green="0.064832735480000001" blue="0.37919809360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                        <imageReference key="selectedImage" image="paperplane.circle.fill" catalog="system" symbolScale="large" renderingMode="hierarchical" variableValue="1">
+                            <hierarchicalColors>
+                                <color red="0.1997413143" green="0.064832735480000001" blue="0.37919809360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="496-7q-9A8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,7 +114,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fNZ-sD-eKc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.52730734619999997" green="0.22595440859999999" blue="0.89062051669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="2Sa-Mj-oXl" kind="relationship" relationship="viewControllers" id="vhu-IP-WyV"/>
@@ -60,10 +129,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="info.circle" catalog="system" width="128" height="123"/>
+        <image name="paperplane.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

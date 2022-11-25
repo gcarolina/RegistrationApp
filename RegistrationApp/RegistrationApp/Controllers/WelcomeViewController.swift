@@ -4,8 +4,8 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
-    var name: String?
+final class WelcomeViewController: UIViewController {
+    var userModel: UserModel?
     // MARK: - IBOutlets
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -14,19 +14,19 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        if name != nil {
-            welcomeLabel.text = "\(name ?? " ") welcome to our app!"
-        }
     }
 
     // MARK: - Actions
-    // переход по конпке continue из WelcomeVC в SignInVC
-    @IBAction func continueAction() {
+    // переход по кнопке continue из WelcomeVC в SignInVC + запись данных в бд
+    @IBAction private func continueAction() {
+        guard let userModel = userModel else { return }
+                UserDefaultsService.saveUserModel(userModel: userModel)
         performSegue(withIdentifier: "unwindToSignInVCFromWelcome", sender: "")
     }
     
     // MARK: - Functions
-    func setupUI() {
+    private func setupUI() {
         continueButton.layer.cornerRadius = continueButton.frame.size.height / 2
+        welcomeLabel.text = "\(userModel?.name ?? " ") welcome to our app!"
     }
 }

@@ -23,7 +23,6 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="createAccount" destination="YMk-Bf-EQh" eventType="touchUpInside" id="oHf-xr-K6t"/>
                                     <segue destination="12D-IE-YPY" kind="show" id="oWx-1I-ow4"/>
                                 </connections>
                             </button>
@@ -56,10 +55,10 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
-                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CV-PQ-v1M">
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error password or email" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CV-PQ-v1M">
                                                         <rect key="frame" x="0.0" y="0.0" width="217" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" red="1" green="0.3655172753" blue="0.43136865759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" red="0.43271051271997318" green="0.15909296888100519" blue="0.19158512676765532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -76,6 +75,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="signIn" destination="YMk-Bf-EQh" eventType="touchUpInside" id="XlV-y8-4cS"/>
+                                            <segue destination="fdr-8D-N8F" kind="show" identifier="goToTBVC" id="B6G-IW-kcE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -93,8 +93,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="PKY-oP-qgt"/>
                     <connections>
-                        <outlet property="enterEmail" destination="wrl-yf-FVK" id="4HD-uo-aLa"/>
-                        <outlet property="enterPassword" destination="Fco-9I-pab" id="vVY-lq-hLn"/>
+                        <outlet property="enterEmail" destination="wrl-yf-FVK" id="N5T-Ds-8kU"/>
+                        <outlet property="enterPassword" destination="Fco-9I-pab" id="wD8-2o-hii"/>
                         <outlet property="errorPassword" destination="2CV-PQ-v1M" id="6l2-OP-PHa"/>
                         <outlet property="signInButton" destination="tUL-YH-7ZA" id="xIO-fs-ivC"/>
                     </connections>
@@ -112,6 +112,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H58-Fn-URI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2048" y="-293"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="2IT-0b-qhu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="fdr-8D-N8F" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Gzf-ge-Inb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6X-xZ-YnR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1949" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4by-iF-b1X">
