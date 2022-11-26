@@ -11,14 +11,22 @@ final class SignInViewController: UIViewController {
     @IBOutlet private weak var enterEmail: UITextField!
     @IBOutlet private weak var enterPassword: UITextField!
     @IBOutlet private weak var errorPassword: UILabel!
+    @IBOutlet private weak var errorEmailLbl: UILabel!
     
+    private var isValidEmail = false
+    private var isValidPass = false
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // записать в UserDefaultsService булевое значение залогирован ли пользователь
-        if let _ = UserDefaultsService.getUserModel() {
-            performSegue(withIdentifier: "goToTBVC", sender: nil)
+        errorPassword.isHidden = true
+        
+        let isLogged = UserDefaultsService.checkIfUserIsLoggedIn()
+        if isLogged {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let mainVC = storyboard.instantiateViewController(withIdentifier: "Main") as? UITabBarController {
+                navigationController?.pushViewController(mainVC, animated: true)
+            }
         }
     }
     
@@ -28,22 +36,45 @@ final class SignInViewController: UIViewController {
     }
     
     // MARK: - Actions
-//    @IBAction func enterEmailAction() {
-//    }
-//
-//    @IBAction func enterPasswordAction() {
-//    }
+    
+    @IBAction func enterEmailAction() {
+        if let email = enterEmail.text,
+               !email.isEmpty,
+               VerificationServices.isValidEmail(email: email) {
+                    isValidEmail = true
+                } else {
+                    isValidEmail = false
+                }
+        errorEmailLbl.isHidden = isValidEmail
+        errorEmailLbl.text = "Error email format"
+    }
+    
+    @IBAction func enterPasswordAction() {
+        let weakRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+        if let passText = enterPassword.text, !passText.isEmpty {
+            if NSPredicate(format: "SELF MATCHES %@", weakRegex).evaluate(with: passText) {
+                isValidPass = true
+            } else {
+                isValidPass = false
+            }
+        }
+        errorPassword.isHidden = isValidPass
+        errorPassword.text = "Error password format"
+    }
     
     @IBAction private func signIn() {
-        errorPassword.isHidden = true
-        guard let emailText = enterEmail.text, !emailText.isEmpty,
-              let passwordText = enterPassword.text, !passwordText.isEmpty,
-              let userModel = UserDefaultsService.getUserModel(),
-              emailText == userModel.email, passwordText == userModel.password else {
+        if let emailText = enterEmail.text, !emailText.isEmpty,
+           let passwordText = enterPassword.text, !passwordText.isEmpty,
+           let userModel = UserDefaultsService.getUserModel(),
+           emailText == userModel.email, passwordText == userModel.password {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let mainVC = storyboard.instantiateViewController(withIdentifier: "Main") as? UITabBarController {
+                navigationController?.pushViewController(mainVC, animated: true)
+            }
+        } else {
             errorPassword.isHidden = false
-            return
+            errorPassword.text = "Error password or email"
         }
-        performSegue(withIdentifier: "goToTBVC", sender: nil)
     }
     
     // переход по кнопке signIn из createVC в SignInVC

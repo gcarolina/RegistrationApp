@@ -36,7 +36,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="22"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="deleteAccountAction" destination="e01-ai-NSV" eventType="touchUpInside" id="fkv-NB-BAW"/>
+                                    <action selector="deleteAccountAction" destination="e01-ai-NSV" eventType="touchUpInside" id="1xd-js-sYK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -110,7 +110,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Nsj-ld-ql5">
             <objects>
-                <tabBarController id="kSJ-QZ-KEi" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kSJ-QZ-KEi" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fNZ-sD-eKc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

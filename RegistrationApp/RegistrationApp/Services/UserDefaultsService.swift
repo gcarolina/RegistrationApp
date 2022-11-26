@@ -29,4 +29,12 @@ final class UserDefaultsService {
     static func cleanUserDefaults() {
         UserDefaults.standard.reset()
     }
+    
+    static func checkIfUserIsLoggedIn() -> Bool {
+        var isLogged = false
+        if let _ = UserDefaultsService.getUserModel() {
+            isLogged = true
+        }
+        return isLogged
+    }
 }

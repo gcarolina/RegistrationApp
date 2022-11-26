@@ -38,13 +38,27 @@
                                                 <color key="textColor" red="0.23365128222600445" green="0.071004180648439968" blue="0.42839551212811711" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wrl-yf-FVK">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JUD-2o-Pg7">
                                                 <rect key="frame" x="0.0" y="47.666666666666686" width="217" height="34"/>
-                                                <color key="backgroundColor" red="0.74119462560000005" green="0.69435179010000003" blue="0.82664543690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="textColor" red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
-                                            </textField>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wrl-yf-FVK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="217" height="34"/>
+                                                        <color key="backgroundColor" red="0.74119462560000005" green="0.69435179010000003" blue="0.82664543690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                        <connections>
+                                                            <action selector="enterEmailAction" destination="YMk-Bf-EQh" eventType="editingChanged" id="96M-q2-gln"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37u-H5-piI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="217" height="0.0"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.43271051269999999" green="0.15909296889999999" blue="0.19158512680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9ZW-oV-osc">
                                                 <rect key="frame" x="0.0" y="101.66666666666669" width="217" height="34"/>
                                                 <subviews>
@@ -54,8 +68,11 @@
                                                         <color key="textColor" red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                        <connections>
+                                                            <action selector="enterPasswordAction" destination="YMk-Bf-EQh" eventType="editingChanged" id="dca-oA-iRp"/>
+                                                        </connections>
                                                     </textField>
-                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error password or email" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CV-PQ-v1M">
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CV-PQ-v1M">
                                                         <rect key="frame" x="0.0" y="0.0" width="217" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.43271051271997318" green="0.15909296888100519" blue="0.19158512676765532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,7 +92,6 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="signIn" destination="YMk-Bf-EQh" eventType="touchUpInside" id="XlV-y8-4cS"/>
-                                            <segue destination="fdr-8D-N8F" kind="show" identifier="goToTBVC" id="B6G-IW-kcE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -95,6 +111,7 @@
                     <connections>
                         <outlet property="enterEmail" destination="wrl-yf-FVK" id="N5T-Ds-8kU"/>
                         <outlet property="enterPassword" destination="Fco-9I-pab" id="wD8-2o-hii"/>
+                        <outlet property="errorEmailLbl" destination="37u-H5-piI" id="DxS-25-mji"/>
                         <outlet property="errorPassword" destination="2CV-PQ-v1M" id="6l2-OP-PHa"/>
                         <outlet property="signInButton" destination="tUL-YH-7ZA" id="xIO-fs-ivC"/>
                     </connections>
@@ -112,16 +129,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H58-Fn-URI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2048" y="-293"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="2IT-0b-qhu">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="fdr-8D-N8F" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Gzf-ge-Inb"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h6X-xZ-YnR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1949" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4by-iF-b1X">

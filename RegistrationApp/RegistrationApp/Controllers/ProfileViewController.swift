@@ -1,9 +1,6 @@
-//
 //  ProfileViewController.swift
 //  RegistrationApp
-//
 //  Created by Carolina on 25.11.22.
-//
 
 import UIKit
 
