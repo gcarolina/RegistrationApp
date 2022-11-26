@@ -20,6 +20,7 @@ final class SecretCodeViewController: UIViewController {
         code = random(digits: 6)
         
         enterCodeLbl.text = "Please enter code \(code) from \(userModel?.email ?? " ")"
+        hideKeyboardWhenTappedAround()
     }
     
     // работает при каждом изменении в TF

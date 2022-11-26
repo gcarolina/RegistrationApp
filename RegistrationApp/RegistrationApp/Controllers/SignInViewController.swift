@@ -19,8 +19,9 @@ final class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        errorPassword.isHidden = true
+        hideKeyboardWhenTappedAround()
         
+        errorPassword.isHidden = true
         let isLogged = UserDefaultsService.checkIfUserIsLoggedIn()
         if isLogged {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
