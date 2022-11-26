@@ -89,7 +89,7 @@
                                                                 <color key="backgroundColor" red="0.74119462560000005" green="0.69435179010000003" blue="0.82664543690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="textColor" red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                 <connections>
                                                                     <action selector="passwTFAction:" destination="0fB-LT-LdC" eventType="editingChanged" id="bfy-8E-e3Z"/>
                                                                 </connections>

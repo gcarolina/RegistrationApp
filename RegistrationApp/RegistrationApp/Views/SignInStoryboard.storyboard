@@ -26,8 +26,8 @@
                                     <segue destination="12D-IE-YPY" kind="show" id="oWx-1I-ow4"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="160" translatesAutoresizingMaskIntoConstraints="NO" id="6vy-nb-UqQ">
-                                <rect key="frame" x="50" y="291" width="293" height="333.66666666666674"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="6vy-nb-UqQ">
+                                <rect key="frame" x="50" y="276" width="293" height="281.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8C8-Jx-IDp">
                                         <rect key="frame" x="38" y="0.0" width="217" height="135.66666666666666"/>
@@ -83,12 +83,12 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUL-YH-7ZA">
-                                        <rect key="frame" x="105" y="295.66666666666663" width="83" height="38"/>
+                                        <rect key="frame" x="107.33333333333334" y="245.6666666666666" width="78.333333333333343" height="35.666666666666657"/>
                                         <color key="backgroundColor" red="0.32369999999999999" green="0.10636" blue="0.57486000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.84225416919999996" green="0.80420060839999996" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign in">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="signIn" destination="YMk-Bf-EQh" eventType="touchUpInside" id="XlV-y8-4cS"/>
@@ -102,7 +102,7 @@
                         <constraints>
                             <constraint firstItem="CNR-rG-WC4" firstAttribute="trailing" secondItem="6vy-nb-UqQ" secondAttribute="trailing" constant="50" id="4QY-8V-OXq"/>
                             <constraint firstAttribute="trailing" secondItem="KlK-rX-1gt" secondAttribute="trailing" constant="15" id="HvQ-Qu-nfp"/>
-                            <constraint firstItem="6vy-nb-UqQ" firstAttribute="top" secondItem="KlK-rX-1gt" secondAttribute="bottom" constant="140" id="MBA-EZ-2hX"/>
+                            <constraint firstItem="6vy-nb-UqQ" firstAttribute="top" secondItem="KlK-rX-1gt" secondAttribute="bottom" constant="125" id="MBA-EZ-2hX"/>
                             <constraint firstItem="6vy-nb-UqQ" firstAttribute="leading" secondItem="CNR-rG-WC4" secondAttribute="leading" constant="50" id="WSJ-re-9DN"/>
                             <constraint firstItem="KlK-rX-1gt" firstAttribute="top" secondItem="CNR-rG-WC4" secondAttribute="top" constant="10" id="l8t-UR-eWQ"/>
                         </constraints>

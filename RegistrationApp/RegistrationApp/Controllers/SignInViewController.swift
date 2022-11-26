@@ -30,15 +30,15 @@ final class SignInViewController: UIViewController {
             }
         }
     }
-    
+    // очистка TF
     override func viewWillAppear(_ animated: Bool) {
         enterEmail.text = ""
         enterPassword.text = ""
+        errorPassword.text = ""
     }
     
     // MARK: - Actions
-    
-    @IBAction func enterEmailAction() {
+    @IBAction private func enterEmailAction() {
         if let email = enterEmail.text,
                !email.isEmpty,
                VerificationServices.isValidEmail(email: email) {
@@ -50,7 +50,7 @@ final class SignInViewController: UIViewController {
         errorEmailLbl.text = "Error email format"
     }
     
-    @IBAction func enterPasswordAction() {
+    @IBAction private func enterPasswordAction() {
         let weakRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
         if let passText = enterPassword.text, !passText.isEmpty {
             if NSPredicate(format: "SELF MATCHES %@", weakRegex).evaluate(with: passText) {
@@ -58,9 +58,9 @@ final class SignInViewController: UIViewController {
             } else {
                 isValidPass = false
             }
+            errorPassword.isHidden = isValidPass
+            errorPassword.text = "Error password format"
         }
-        errorPassword.isHidden = isValidPass
-        errorPassword.text = "Error password format"
     }
     
     @IBAction private func signIn() {

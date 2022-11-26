@@ -12,15 +12,16 @@ final class SecretCodeViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private weak var secretCodeTF: UITextField!
     @IBOutlet private weak var enterCodeLbl: UILabel!
-    @IBOutlet weak var errorSecretCode: UILabel!
-    
+    @IBOutlet private weak var errorSecretCode: UILabel!
+    @IBOutlet private weak var constraintForKeyboard: NSLayoutConstraint!
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        code = random(digits: 6)
-        
-        enterCodeLbl.text = "Please enter code \(code) from \(userModel?.email ?? " ")"
+        startKeyboardObserver()
         hideKeyboardWhenTappedAround()
+        
+        code = random(digits: 6)
+        enterCodeLbl.text = "Please enter code \(code) from \(userModel?.email ?? " ")"
     }
     
     // работает при каждом изменении в TF
@@ -43,7 +44,7 @@ final class SecretCodeViewController: UIViewController {
 //    }
     
     // работает при нажатии на return
-    @IBAction func enterCodeAction(_ sender: UITextField) {
+    @IBAction private func enterCodeAction(_ sender: UITextField) {
         guard let text = sender.text,
               !text.isEmpty, text == code.description else {
             errorSecretCode.text = "Error code. Please wait \(sleepTime) seconds"
@@ -64,8 +65,6 @@ final class SecretCodeViewController: UIViewController {
             welcomeVC.userModel = userModel
         }
     }
-    
-    // MARK: - Navigation
 
     // MARK: - Functions
     private func random(digits: Int) -> String {
@@ -74,5 +73,26 @@ final class SecretCodeViewController: UIViewController {
             number += "\(Int.random(in: 1...9))"
         }
         return number
+    }
+    
+    private func startKeyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+       
+    @objc private func keyboardWillShow(notification: Notification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        constraintForKeyboard.constant -= keyboardSize.height / 2
+    }
+       
+    @objc private func keyboardWillHide(notification: Notification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        constraintForKeyboard.constant += keyboardSize.height / 2
     }
 }

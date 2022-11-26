@@ -7,8 +7,8 @@ import UIKit
 final class WelcomeViewController: UIViewController {
     var userModel: UserModel?
     // MARK: - IBOutlets
-    @IBOutlet weak var continueButton: UIButton!
-    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet private weak var continueButton: UIButton!
+    @IBOutlet private weak var welcomeLabel: UILabel!
     
     // MARK: - Life cycle
     override func viewDidLoad() {

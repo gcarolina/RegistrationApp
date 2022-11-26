@@ -4,10 +4,10 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet weak var deleteAccount: UIButton!
-    @IBOutlet weak var logOut: UIButton!
+    @IBOutlet private weak var deleteAccount: UIButton!
+    @IBOutlet private weak var logOut: UIButton!
     
     // MARK: - Life cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -21,17 +21,15 @@ class ProfileViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
-    @IBAction func logOutAction() {
+    @IBAction private func logOutAction() {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    @IBAction func deleteAccountAction() {
+    @IBAction private func deleteAccountAction() {
         UserDefaultsService.cleanUserDefaults()
         navigationController?.popToRootViewController(animated: true)
     }
-    
-    
+
     // MARK: - Functions
     private func setupUI() {
         deleteAccount.layer.cornerRadius = deleteAccount.frame.size.height / 2
